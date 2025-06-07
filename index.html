@@ -116,29 +116,19 @@
     <p>This site contains content only suitable for adults.<br>Click "Yes" to continue.</p>
     <div class="buttons">
       <a class="btn btn-no" href="javascript:void(0)" onclick="denyAccess()">No</a>
-      <a class="btn btn-yes" href="javascript:void(0)" onclick="redirectToAref()">Yes</a>
+      <a class="btn btn-yes" href="javascript:void(0)" onclick="redirectToOffer()">Yes</a>
     </div>
   </div>
 
   <script>
-    function redirectToAref() {
-      const ageBox = document.getElementById('ageBox');
-      if (ageBox) {
-        ageBox.innerHTML = `
-          <h1>Checking...</h1>
-          <p>Loading nearby profiles...</p>
-        `;
+    function redirectToOffer() {
+      const box = document.getElementById('ageBox');
+      if (box) {
+        box.innerHTML = "<h1>Checking...</h1><p>Loading nearby profiles...</p>";
       }
 
       setTimeout(() => {
-        const url = window.location.href;
-        const arefStart = url.lastIndexOf("aref=");
-        if (arefStart !== -1) {
-          const targetUrl = decodeURIComponent(url.substring(arefStart + 5));
-          window.location.href = targetUrl;
-        } else {
-          window.location.href = "https://example.com/fallback";
-        }
+        window.location.href = "https://jndbdj.lonelylady.net/?utm_source=da57dc555e50572d&ban=push&j5=1&j6=1&s1=233166&s2=2115496&click_id=<tid>";
       }, 2000);
     }
 
