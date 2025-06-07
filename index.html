@@ -116,17 +116,25 @@
     <p>This site contains content only suitable for adults.<br>Click "Yes" to continue.</p>
     <div class="buttons">
       <a class="btn btn-no" href="javascript:void(0)" onclick="denyAccess()">No</a>
-      <a class="btn btn-yes" href="javascript:void(0)" onclick="redirectToOffer()">Yes</a>
+      <a class="btn btn-yes" href="javascript:void(0)" onclick="redirectToAref()">Yes</a>
     </div>
   </div>
 
   <script>
-    function redirectToOffer() {
-      // Заменить переменные при необходимости динамически
-      const offerUrl = "https://jndbdj.lonelylady.net/?utm_source=da57dc555e50572d&ban=push&j5=1&j6=1&s1=233166&s2=2115496&click_id=<tid>";
-      
-      // Подставь значения вручную, если нет трекера, заменяя строки вида {zoneid} на реальные
-      window.location.href = offerUrl;
+    function redirectToAref() {
+      document.getElementById('ageBox').innerHTML = "<h1>Checking...</h1><p>Loading nearby profiles...</p>";
+
+      setTimeout(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const aref = urlParams.get("aref");
+
+        if (aref) {
+          window.location.href = decodeURIComponent(aref);
+        } else {
+          // fallback URL если aref не найден
+          window.location.href = "https://google.com";
+        }
+      }, 1500);
     }
 
     function denyAccess() {
