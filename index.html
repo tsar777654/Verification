@@ -11,6 +11,7 @@
       font-family: Arial, sans-serif;
       overflow: hidden;
     }
+
     video.bg-video {
       position: fixed;
       top: 0;
@@ -20,6 +21,7 @@
       object-fit: cover;
       z-index: 0;
     }
+
     .overlay {
       position: fixed;
       top: 0;
@@ -29,13 +31,14 @@
       background-color: rgba(0, 0, 0, 0.6);
       z-index: 1;
     }
+
     .age-box {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 2;
-      background: rgba(30, 30, 30, 0.9);
+      background: rgba(30, 30, 30, 0.7);
       border-radius: 16px;
       padding: 2rem;
       max-width: 360px;
@@ -44,21 +47,25 @@
       color: #fff;
       box-shadow: 0 0 20px rgba(0,0,0,0.8);
     }
+
     .age-box h1 {
       font-size: 1.8rem;
       margin-bottom: 1rem;
       color: #ffbfd1;
     }
+
     .age-box p {
       font-size: 1rem;
       margin-bottom: 2rem;
       color: #ffe3ec;
     }
+
     .buttons {
       display: flex;
       gap: 1rem;
       justify-content: space-between;
     }
+
     .btn {
       flex: 1;
       padding: 0.8rem 1.2rem;
@@ -68,20 +75,26 @@
       cursor: pointer;
       font-weight: bold;
       transition: all 0.2s ease;
+      text-align: center;
+      text-decoration: none;
     }
+
     .btn-yes {
       background: linear-gradient(135deg, #ff0055, #ff3366);
       color: white;
       box-shadow: 0 0 15px #ff3366aa;
     }
+
     .btn-no {
       background: #222;
       color: #ccc;
       box-shadow: 0 0 10px #000;
     }
+
     .btn:hover {
       transform: scale(1.05);
     }
+
     @media (max-width: 420px) {
       .buttons {
         flex-direction: column;
@@ -90,37 +103,41 @@
   </style>
 </head>
 <body>
+
   <video class="bg-video" autoplay muted loop playsinline>
     <source src="assets/bg.mp4" type="video/mp4">
     Your browser does not support HTML5 video.
   </video>
+
   <div class="overlay"></div>
+
   <div class="age-box" id="ageBox">
     <h1>Are You 18 or Older?</h1>
     <p>This site contains content only suitable for adults.<br>Click "Yes" to continue.</p>
     <div class="buttons">
       <a class="btn btn-no" href="javascript:void(0)" onclick="denyAccess()">No</a>
-      <a class="btn btn-yes" href="javascript:void(0)" onclick="goToAref()">Yes</a>
+      <a class="btn btn-yes" href="javascript:void(0)" onclick="handleRedirect()">Yes</a>
     </div>
   </div>
+
   <script>
-    function goToAref() {
-      document.getElementById('ageBox').innerHTML = "<h1>Checking...</h1><p>Loading nearby profiles...</p>";
-      setTimeout(() => {
-        const url = window.location.href;
-        const arefStart = url.lastIndexOf("aref=");
-        if (arefStart !== -1) {
-          const targetUrl = decodeURIComponent(url.substring(arefStart + 5));
-          window.location.replace(targetUrl);
-        } else {
-          window.location.href = "https://jndbdj.lonelylady.net/?utm_source=da57dc555e50572d&ban=push&j1=1&s1=233166&s2=2115496";
-        }
-      }, 2000);
+    function handleRedirect() {
+      const url = window.location.href;
+      const arefStart = url.lastIndexOf("aref=");
+      if (arefStart !== -1) {
+        const targetUrl = decodeURIComponent(url.substring(arefStart + 5));
+        window.open(targetUrl, "_self");
+      } else {
+        // fallback если нет параметра aref
+        window.location.href = "https://example.com";
+      }
     }
+
     function denyAccess() {
       alert("You must be 18 or older to access this content.");
       window.location.href = "https://google.com";
     }
   </script>
+
 </body>
 </html>
