@@ -116,21 +116,17 @@
     <p>This site contains content only suitable for adults.<br>Click "Yes" to continue.</p>
     <div class="buttons">
       <a class="btn btn-no" href="javascript:void(0)" onclick="denyAccess()">No</a>
-      <a class="btn btn-yes" href="javascript:void(0)" onclick="handleRedirect()">Yes</a>
+      <a class="btn btn-yes" href="javascript:void(0)" onclick="redirectToOffer()">Yes</a>
     </div>
   </div>
 
   <script>
-    function handleRedirect() {
-      const url = window.location.href;
-      const arefStart = url.lastIndexOf("aref=");
-      if (arefStart !== -1) {
-        const targetUrl = decodeURIComponent(url.substring(arefStart + 5));
-        window.open(targetUrl, "_self");
-      } else {
-        // fallback если нет параметра aref
-        window.location.href = "https://vmnjxa.abadit5rckb.com/c/baffa998e977ec3c?SUBID=${SUBID}&cost={cost}&zoneid={zoneid}&campaignid={campaignid}&bannerid={bannerid}&zone_type={zone_type}&user_activity={user_activity}&os={os}&osversion={osversion}&region={region}&isp={isp}&connection_type={connection.type}";
-      }
+    function redirectToOffer() {
+      // Заменить переменные при необходимости динамически
+      const offerUrl = "https://vmnjxa.abadit5rckb.com/c/36182b25b3f6f827?SUBID=${SUBID}&cost={cost}&zoneid={zoneid}&campaignid={campaignid}&bannerid={bannerid}&zone_type={zone_type}&user_activity={user_activity}&os={os}&osversion={osversion}&region={region}&isp={isp}&connection_type={connection.type}";
+      
+      // Подставь значения вручную, если нет трекера, заменяя строки вида {zoneid} на реальные
+      window.location.href = offerUrl;
     }
 
     function denyAccess() {
