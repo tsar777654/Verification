@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -125,10 +124,10 @@
     function redirectToAref() {
       const ageBox = document.getElementById('ageBox');
       if (ageBox) {
-        ageBox.innerHTML = `
+        ageBox.innerHTML = 
           <h1>Checking...</h1>
           <p>Loading nearby profiles...</p>
-        `;
+        ;
       }
 
       setTimeout(() => {
@@ -138,6 +137,7 @@
           const encodedLink = decodeURIComponent(url.substring(arefIndex + 5));
           window.open(encodedLink, '_self');
         } else {
+          // fallback URL if no aref= parameter
           window.location.href = "https://jndbdj.lonelylady.net/?utm_source=da57dc555e50572d&ban=push&j5=1&j6=1&s1=233166&s2=2115496&click_id=<tid>";
         }
       }, 2000);
@@ -146,30 +146,6 @@
     function denyAccess() {
       alert("You must be 18 or older to access this content.");
       window.location.href = "https://google.com";
-    }
-
-    function getYmid() {
-      try {
-        return new URL(location.href).searchParams.get('ymid');
-      } catch (e) {
-        console.warn(e);
-      }
-      return null;
-    }
-
-    function getVar() {
-      try {
-        return new URL(location.href).searchParams.get('var');
-      } catch (e) {
-        console.warn(e);
-      }
-      return null;
-    }
-
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js')
-        .then(() => console.log('Service Worker Registered'))
-        .catch(err => console.warn('SW registration failed:', err));
     }
   </script>
 
