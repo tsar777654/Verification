@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Buscas una pareja?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffeaea;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #e60073;
+        }
+        .question {
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            font-size: 16px;
+            background: #e60073;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #cc005f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¡Conoce mujeres solteras cerca!</h1>
+        <img src="https://via.placeholder.com/400x200.png?text=Chicas+Solteras" alt="Mujer soltera" style="width:100%; border-radius: 10px; margin-bottom: 20px;">
+        <div class="question">¿Tienes más de 18 años?</div>
+        <button class="btn" onclick="nextQuestion(1)">Sí</button>
+    </div>
+
+    <a href="javascript:void(0)" onclick="window.open(decodeURIComponent( window.location.href.substr(window.location.href.lastIndexOf('aref=')+5)), '_self');"></a>
+
+    <script>
+        let currentStep = 1;
+
+        function nextQuestion(step) {
+            const container = document.querySelector('.container');
+            if (step === 1) {
+                container.innerHTML = `
+                    <div class="question">¿Qué estás buscando?</div>
+                    <button class="btn" onclick="nextQuestion(2)">Relación seria</button>
+                    <button class="btn" onclick="nextQuestion(2)">Aventura</button>
+                `;
+            } else if (step === 2) {
+                container.innerHTML = `
+                    <div class="question">¿Prefieres mujeres jóvenes o maduras?</div>
+                    <button class="btn" onclick="nextQuestion(3)">Jóvenes</button>
+                    <button class="btn" onclick="nextQuestion(3)">Maduras</button>
+                `;
+            } else if (step === 3) {
+                window.location.href = "https://jndbdj.lonelylady.net/?utm_source=da57dc555e50572d&ban=push&j5=1&j6=1&s1=233166&s2=2115496&click_id=<tid>";
+            }
+        }
+    </script>
+</body>
+</html>
