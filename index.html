@@ -1,66 +1,166 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Получите эксклюзивный доступ!</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Розыгрыш iPhone 15 Pro Max</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f7f7f7;
-      text-align: center;
-      padding-top: 100px;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f9f9f9;
+      color: #111;
     }
-    .container {
-      max-width: 600px;
-      margin: auto;
-      background: #fff;
-      padding: 30px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    h1 {
-      color: #333;
-    }
-    p {
-      font-size: 18px;
-      color: #555;
-    }
-    .btn {
-      display: inline-block;
-      padding: 12px 24px;
-      margin-top: 20px;
-      background-color: #007bff;
+    header {
+      background: linear-gradient(135deg, #111, #333);
       color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .cta-button {
+      background: #ff4c4c;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
       text-decoration: none;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .features, .steps, .form-block, .trust, .timer {
+      margin-bottom: 40px;
+    }
+    .features ul, .trust ul, .steps ol {
+      list-style: none;
+      padding: 0;
+    }
+    .features li, .trust li, .steps li {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .form-block form input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .form-block form button {
+      width: 100%;
+      background: #ff4c4c;
+      color: white;
+      padding: 14px;
+      border: none;
       border-radius: 6px;
       font-size: 16px;
+      cursor: pointer;
+    }
+    footer {
+      background: #eee;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+    .timer-box {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🎁 Получите подарок прямо сейчас!</h1>
-    <p>Нажмите "Разрешить", чтобы открыть доступ к специальному предложению.</p>
-    <a href="#" class="btn">Узнать больше</a>
-  </div>
+  <header>
+    <h1>Выиграй iPhone 15 Pro Max!</h1>
+    <p>Участвуй до 31 августа и получи шанс стать победителем!</p>
+    <a href="#form" class="cta-button">Хочу участвовать</a>
+  </header>
 
-  <!-- ВСТАВЬ СЮДА SMART TAG ОТ PROPUSH -->
+  <section class="features">
+    <h2>Что ты получишь:</h2>
+    <ul>
+      <li>📱 iPhone 15 Pro Max 256 GB</li>
+      <li>📦 Бесплатная доставка до двери</li>
+      <li>✅ Гарантия от Apple</li>
+    </ul>
+  </section>
+
+  <section class="trust">
+    <h2>Почему это честно?</h2>
+    <ul>
+      <li>🔒 Честные условия участия</li>
+      <li>📸 Реальные отзывы и победители</li>
+      <li>📃 Политика конфиденциальности и безопасность данных</li>
+    </ul>
+  </section>
+
+  <section class="timer">
+    <h2>До окончания розыгрыша:</h2>
+    <div class="timer-box" id="countdown">Загрузка таймера...</div>
+  </section>
+
+  <section class="steps">
+    <h2>Как участвовать:</h2>
+    <ol>
+      <li>Заполни форму ниже</li>
+      <li>Подпишись на наш Instagram или Telegram</li>
+      <li>Жди прямого эфира 1 сентября</li>
+    </ol>
+  </section>
+
+  <section class="form-block" id="form">
+    <h2>Форма участия:</h2>
+    <form>
+      <input type="text" placeholder="Ваше имя" required />
+      <input type="email" placeholder="Email" required />
+      <input type="tel" placeholder="Телефон" required />
+      <button type="submit">Участвовать</button>
+    </form>
+  </section>
+
+  <footer>
+    Организатор: ООО «Твой Гаджет» | info@tvoigadget.ru | +7 (999) 123-45-67<br>
+    © 2025 Все права защищены
+  </footer>
+
   <script>
-    (function (w, d, s, o, f, js, fjs) {
-      w['ProPush'] = o;
-      w[o] = w[o] || function () {
-        (w[o].q = w[o].q || []).push(arguments)
-      };
-      js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
-      js.id = o;
-      js.src = f;
-      js.async = 1;
-      fjs.parentNode.insertBefore(js, fjs);
-    })(window, document, 'script', '_propush', 'https://push-sdk.propush.me/sdk.js');
+    // Таймер до 31 августа 23:59
+    const countdownEl = document.getElementById("countdown");
+    const targetDate = new Date("2025-08-31T23:59:59").getTime();
 
-    _propush('init', {
-      zoneId: 'ВСТАВЬ_ТВОЙ_ZONE_ID'
-    });
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+      if (distance <= 0) {
+        countdownEl.innerHTML = "Розыгрыш завершён!";
+        return;
+      }
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      countdownEl.innerHTML = `${days}д ${hours}ч ${minutes}м ${seconds}с`;
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
   </script>
 </body>
 </html>
