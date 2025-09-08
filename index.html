@@ -22,7 +22,7 @@
     /* Контейнер кнопки — размещение внизу экрана */
     .cta-container {
       position: fixed;
-      bottom: 40px; /* чуть меньше отступ от низа для мобильных */
+      bottom: 40px; /* отступ от низа */
       width: 100%;
       display: flex;
       justify-content: center;
@@ -30,20 +30,20 @@
       z-index: 1000;
     }
 
-    /* Компактная неоновая пульсирующая кнопка для мобильных */
+    /* Мини-компактная неоновая пульсирующая кнопка */
     .cta-button {
       position: relative;
       background: linear-gradient(90deg, #ff00ff, #ff6600, #00ffff, #ff00ff);
       background-size: 400% 400%;
       color: #fff;
-      font-size: 1.2rem; /* уменьшенный размер шрифта */
+      font-size: 1rem; /* уменьшенный размер шрифта */
       font-weight: bold;
-      padding: 12px 40px; /* уменьшенный padding для мобильных */
+      padding: 10px 30px; /* уменьшенный padding */
       border: none;
-      border-radius: 40px; /* чуть меньше радиус */
+      border-radius: 35px; 
       cursor: pointer;
-      text-shadow: 0 0 8px #fff;
-      box-shadow: 0 0 12px #ff00ff, 0 0 20px #ff6600, 0 0 30px #00ffff;
+      text-shadow: 0 0 6px #fff;
+      box-shadow: 0 0 10px #ff00ff, 0 0 18px #ff6600, 0 0 25px #00ffff;
       animation: gradientShift 5s ease infinite, pulse 2s infinite, neonGlow 1.5s ease-in-out infinite alternate;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       z-index: 1000;
@@ -59,20 +59,20 @@
     /* Пульсирование кнопки */
     @keyframes pulse {
       0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); } /* чуть меньше пульсация для мобильных */
+      50% { transform: scale(1.05); }
     }
 
     /* Мягкое неоновое свечение */
     @keyframes neonGlow {
-      0% { box-shadow: 0 0 12px #ff00ff, 0 0 25px #ff6600, 0 0 35px #00ffff; }
-      50% { box-shadow: 0 0 18px #ff00ff, 0 0 35px #ff6600, 0 0 50px #00ffff; }
-      100% { box-shadow: 0 0 12px #ff00ff, 0 0 25px #ff6600, 0 0 35px #00ffff; }
+      0% { box-shadow: 0 0 10px #ff00ff, 0 0 18px #ff6600, 0 0 25px #00ffff; }
+      50% { box-shadow: 0 0 15px #ff00ff, 0 0 28px #ff6600, 0 0 40px #00ffff; }
+      100% { box-shadow: 0 0 10px #ff00ff, 0 0 18px #ff6600, 0 0 25px #00ffff; }
     }
 
     /* Hover эффект */
     .cta-button:hover {
-      transform: scale(1.15); /* чуть меньше увеличение для мобильных */
-      box-shadow: 0 0 40px #ff00ff, 0 0 70px #ff6600, 0 0 90px #00ffff;
+      transform: scale(1.1); 
+      box-shadow: 0 0 35px #ff00ff, 0 0 60px #ff6600, 0 0 75px #00ffff;
     }
   </style>
 </head>
