@@ -1,74 +1,88 @@
-<div class="age-box" id="ageBox">
-  <div class="cta-container">
-    <button class="cta-button" onclick="window.location.href='https://jndbdj.successfullucks.net/?utm_source=efdf652fd692b382&ban=other&j1=1&s1=233166&s2=2150021&click_id=<tid>'">
-      CLICK TO ENTER
-    </button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pre-Landing Neon Button</title>
+  <style>
+    /* Фон age-box из папки assets — на весь экран без рамок */
+    #ageBox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: url('assets/bg.png') no-repeat center center;
+      background-size: cover; /* фото растягивается на весь экран */
+      z-index: 0;
+    }
+
+    /* Контейнер кнопки — размещение внизу экрана */
+    .cta-container {
+      position: fixed;
+      bottom: 50px; /* отступ от низа */
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    /* Неоновая пульсирующая кнопка */
+    .cta-button {
+      position: relative;
+      background: linear-gradient(90deg, #ff00ff, #ff6600, #00ffff, #ff00ff);
+      background-size: 400% 400%;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: bold;
+      padding: 25px 80px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-shadow: 0 0 10px #fff;
+      box-shadow: 0 0 20px #ff00ff, 0 0 30px #ff6600, 0 0 40px #00ffff;
+      animation: gradientShift 5s ease infinite, pulse 2s infinite, neonGlow 1.5s ease-in-out infinite alternate;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 1000;
+    }
+
+    /* Анимация градиента */
+    @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    /* Пульсирование кнопки */
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    /* Мягкое неоновое свечение */
+    @keyframes neonGlow {
+      0% { box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff6600, 0 0 60px #00ffff; }
+      50% { box-shadow: 0 0 30px #ff00ff, 0 0 50px #ff6600, 0 0 80px #00ffff; }
+      100% { box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff6600, 0 0 60px #00ffff; }
+    }
+
+    /* Hover эффект */
+    .cta-button:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 50px #ff00ff, 0 0 80px #ff6600, 0 0 100px #00ffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="age-box" id="ageBox">
+    <div class="cta-container">
+      <button class="cta-button" onclick="window.location.href='https://jndbdj.successfullucks.net/?utm_source=efdf652fd692b382&ban=other&j1=1&s1=233166&s2=2150021&click_id=<tid>'">
+        CLICK TO ENTER
+      </button>
+    </div>
   </div>
-</div>
-
-<style>
-/* Фон age-box из папки assets */
-#ageBox {
-  width: 100%;
-  height: 100vh; /* занимает весь экран */
-  background: url('assets/bg3.png') no-repeat center center;
-  background-size: cover;
-  position: relative;
-}
-
-/* Контейнер кнопки — размещение внизу экрана */
-.cta-container {
-  position: absolute;
-  bottom: 50px; /* отступ от низа */
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-/* Неоновая пульсирующая кнопка */
-.cta-button {
-  position: relative;
-  background: linear-gradient(90deg, #ff00ff, #ff6600, #00ffff, #ff00ff);
-  background-size: 400% 400%;
-  color: #fff;
-  font-size: 2rem;
-  font-weight: bold;
-  padding: 25px 80px;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  text-shadow: 0 0 10px #fff;
-  box-shadow: 0 0 20px #ff00ff, 0 0 30px #ff6600, 0 0 40px #00ffff;
-  animation: gradientShift 5s ease infinite, pulse 2s infinite, neonGlow 1.5s ease-in-out infinite alternate;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 1000;
-}
-
-/* Анимация градиента */
-@keyframes gradientShift {
-  0% {background-position: 0% 50%;}
-  50% {background-position: 100% 50%;}
-  100% {background-position: 0% 50%;}
-}
-
-/* Пульсирование кнопки */
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-
-/* Мягкое неоновое свечение */
-@keyframes neonGlow {
-  0% { box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff6600, 0 0 60px #00ffff; }
-  50% { box-shadow: 0 0 30px #ff00ff, 0 0 50px #ff6600, 0 0 80px #00ffff; }
-  100% { box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff6600, 0 0 60px #00ffff; }
-}
-
-/* Hover эффект */
-.cta-button:hover {
-  transform: scale(1.2);
-  box-shadow: 0 0 50px #ff00ff, 0 0 80px #ff6600, 0 0 100px #00ffff;
-}
-</style>
+</body>
+</html>
