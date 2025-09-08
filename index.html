@@ -1,86 +1,74 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Подпишись и получи бонус!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pre-Landing Neon Button</title>
   <style>
-    body {
+    body, html {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ff416c, #ff4b2b);
-      color: white;
-      text-align: center;
+      height: 100%;
+      font-family: 'Arial', sans-serif;
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      height: 100vh;
-      overflow: hidden;
+      align-items: center;
+      background: url('assets/bg3.jpg') no-repeat center center;
+      background-size: cover;
+      position: relative;
+    }
+
+    /* Затемнение фона для контраста */
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      z-index: 1;
     }
 
     .container {
-      padding: 20px;
-      animation: fadeIn 1s ease-out;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      padding-bottom: 50px;
+      box-sizing: border-box;
     }
 
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 0.3em;
-    }
-
-    p {
-      font-size: 1.2em;
-      margin-bottom: 1em;
-    }
-
-    .btn {
-      background-color: #fff;
-      color: #ff416c;
+    /* Неоновая кнопка */
+    .cta-button {
+      background: linear-gradient(90deg, #ff6a00, #ee0979);
+      color: #fff;
+      font-size: 2rem;
+      font-weight: bold;
+      padding: 20px 60px;
       border: none;
-      border-radius: 30px;
-      padding: 15px 30px;
-      font-size: 1.2em;
+      border-radius: 50px;
       cursor: pointer;
+      box-shadow: 0 0 20px rgba(255,106,0,0.7), 0 0 30px rgba(238,9,121,0.7);
+      text-shadow: 0 0 10px rgba(255,255,255,0.7);
       transition: all 0.3s ease;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
     }
 
-    .btn:hover {
-      background-color: #ffe6eb;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+    .cta-button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px rgba(255,106,0,0.9), 0 0 40px rgba(238,9,121,0.9);
     }
   </style>
 </head>
 <body>
+  <div class="overlay"></div>
   <div class="container">
-    <h1>🎁 Получи бонус первым!</h1>
-    <p>Подпишись на уведомления и узнай о новых акциях, скидках и подарках раньше всех!</p>
-    <button class="btn" onclick="subscribeToPush()">Разрешить уведомления</button>
+    <button class="cta-button" onclick="window.location.href='https://jndbdj.successfullucks.net/?utm_source=efdf652fd692b382&ban=other&j1=1&s1=233166&s2=2150021&click_id=<tid>';">
+      CLICK TO ENTER
+    </button>
   </div>
-
-  <script>
-    function subscribeToPush() {
-      Notification.requestPermission().then(permission => {
-        if (permission === 'granted') {
-          alert('Спасибо за подписку! 🎉');
-          // Здесь можно интегрировать push-подписку через OneSignal/Firebase
-        } else {
-          alert('Вы можете подписаться позже, чтобы не пропустить бонусы!');
-        }
-      });
-    }
-
-    // Автоматический вызов подписки через 2 секунды
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        subscribeToPush();
-      }, 2000);
-    });
-  </script>
 </body>
 </html>
