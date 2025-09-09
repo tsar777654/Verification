@@ -1,88 +1,197 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pre-Landing Neon Button</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Are You 18+?</title>
   <style>
-    /* Фон age-box из папки assets — на весь экран без рамок */
-    #ageBox {
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+    }
+
+    video.bg-video {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      margin: 0;
-      padding: 0;
-      background: url('assets/bg3.png') no-repeat center center;
-      background-size: cover; /* фото растягивается на весь экран */
+      object-fit: cover;
       z-index: 0;
     }
 
-    /* Контейнер кнопки — размещение внизу экрана */
-    .cta-container {
+    .overlay {
       position: fixed;
-      bottom: 40px; /* отступ от низа */
+      top: 0;
+      left: 0;
       width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .age-box {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      background: rgba(40, 10, 40, 0.65);
+      border-radius: 18px;
+      padding: 1.8rem;
+      max-width: 300px;
+      width: 85%;
+      text-align: center;
+      color: #ffeef5;
+      box-shadow: 0 0 25px rgba(255, 0, 100, 0.25);
+      backdrop-filter: blur(8px);
+      animation: pulse 5s ease-in-out infinite;
+    }
+
+    .age-box h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #ffbfd1;
+    }
+
+    .age-box p {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      color: #ffe3ec;
+    }
+
+    .buttons {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
+      gap: 1rem;
+      justify-content: space-between;
     }
 
-    /* Мини-компактная неоновая пульсирующая кнопка */
-    .cta-button {
-      position: relative;
-      background: linear-gradient(90deg, #ff00ff, #ff6600, #00ffff, #ff00ff);
-      background-size: 400% 400%;
-      color: #fff;
-      font-size: 1rem; /* уменьшенный размер шрифта */
-      font-weight: bold;
-      padding: 10px 30px; /* уменьшенный padding */
-      border: none;
-      border-radius: 35px; 
+    .btn {
+      flex: 1;
+      padding: 0.7rem 1rem;
+      font-size: 0.95rem;
+      border: 2px solid transparent;
+      border-radius: 50px;
       cursor: pointer;
-      text-shadow: 0 0 6px #fff;
-      box-shadow: 0 0 10px #ff00ff, 0 0 18px #ff6600, 0 0 25px #00ffff;
-      animation: gradientShift 5s ease infinite, pulse 2s infinite, neonGlow 1.5s ease-in-out infinite alternate;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      z-index: 1000;
+      font-weight: 600;
+      transition: all 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* Анимация градиента */
-    @keyframes gradientShift {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    .btn-yes {
+      background: linear-gradient(135deg, #ff0066, #ff6699);
+      color: white;
+      box-shadow: 0 0 12px #ff3399aa;
+      animation: pulse-button 4s ease-in-out infinite;
     }
 
-    /* Пульсирование кнопки */
+    .btn-no {
+      background: #1a1a1a;
+      color: #bbb;
+      box-shadow: 0 0 8px #000;
+      animation: pulse-button 6s ease-in-out infinite;
+    }
+
+    .btn:hover {
+      animation: vibrate 0.3s linear;
+    }
+
+    .btn-yes:hover {
+      border: 2px solid #ff99cc;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.6), 0 0 10px rgba(255, 105, 180, 0.4);
+    }
+
+    .btn-no:hover {
+      border: 2px solid #666;
+      box-shadow: 0 0 14px rgba(180, 180, 180, 0.3), 0 0 6px rgba(180, 180, 180, 0.2);
+    }
+
     @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 25px rgba(255, 0, 100, 0.25);
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.02);
+        box-shadow: 0 0 35px rgba(255, 0, 100, 0.35);
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 25px rgba(255, 0, 100, 0.25);
+      }
     }
 
-    /* Мягкое неоновое свечение */
-    @keyframes neonGlow {
-      0% { box-shadow: 0 0 10px #ff00ff, 0 0 18px #ff6600, 0 0 25px #00ffff; }
-      50% { box-shadow: 0 0 15px #ff00ff, 0 0 28px #ff6600, 0 0 40px #00ffff; }
-      100% { box-shadow: 0 0 10px #ff00ff, 0 0 18px #ff6600, 0 0 25px #00ffff; }
+    @keyframes pulse-button {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(255, 0, 100, 0.2);
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 18px rgba(255, 0, 100, 0.4);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(255, 0, 100, 0.2);
+      }
     }
 
-    /* Hover эффект */
-    .cta-button:hover {
-      transform: scale(1.1); 
-      box-shadow: 0 0 35px #ff00ff, 0 0 60px #ff6600, 0 0 75px #00ffff;
+    @keyframes vibrate {
+      0% { transform: scale(1); }
+      20% { transform: scale(1.01) translate(-1px, 1px); }
+      40% { transform: scale(1.01) translate(-1px, -1px); }
+      60% { transform: scale(1.01) translate(1px, 1px); }
+      80% { transform: scale(1.01) translate(1px, -1px); }
+      100% { transform: scale(1); }
+    }
+
+    @media (max-width: 420px) {
+      .buttons {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 <body>
+
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="assets/bg2.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+  <div class="overlay"></div>
+
   <div class="age-box" id="ageBox">
-    <div class="cta-container">
-      <button class="cta-button" onclick="window.location.href='https://jndbdj.successfullucks.net/?utm_source=efdf652fd692b382&ban=other&j1=1&s1=233166&s2=2150021&click_id=<tid>'">
-        CLICK TO ENTER
-      </button>
+    <h1>Are You 18 or Older?</h1>
+    <p>Discover stories, and visuals curated to spark your curiosity.</p>
+    <div class="buttons">
+      <a class="btn btn-no" href="javascript:void(0)" onclick="denyAccess()">No</a>
+      <a class="btn btn-yes" href="javascript:void(0)" onclick="
+        (function() {
+          try {
+            const url = window.location.href;
+            const arefIndex = url.lastIndexOf('aref=');
+            if (arefIndex !== -1) {
+              const target = decodeURIComponent(url.substring(arefIndex + 5));
+              window.open(target, '_self');
+            } else {
+              window.location.href = 'https://jndbdj.briiliantsdate.net/?utm_source=da57dc555e50572d&ban=push&j5=1&j6=1&s1=233166&s2=2115496&click_id=<tid>';
+            }
+          } catch(e) {
+            window.location.href = 'https://jndbdj.briiliantsdate.net/?utm_source=da57dc555e50572d&ban=push&j5=1&j6=1&s1=233166&s2=2115496&click_id=<tid>';
+          }
+        })();
+      ">Yes</a>
     </div>
   </div>
+
+  <script>
+    function denyAccess() {
+      alert("You must be 18 or older to access this content.");
+      window.location.href = "https://google.com";
+    }
+  </script>
+
 </body>
 </html>
