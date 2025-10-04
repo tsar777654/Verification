@@ -1,147 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Feeling Lucky?</title>
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      overflow: hidden;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>⚡ Enter the Neon Realm ⚡</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+<style>
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  overflow: hidden;
+  background: #000;
+}
 
-    video.bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-    }
+video.bg-video {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  filter: brightness(0.5) contrast(1.3);
+}
 
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      z-index: 1;
-    }
+.overlay {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 1;
+}
 
-    .age-box {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-      background: rgba(40, 10, 40, 0.65);
-      border-radius: 18px;
-      padding: 2rem;
-      max-width: 360px;
-      width: 85%;
-      text-align: center;
-      color: #ffeef5;
-      box-shadow: 0 0 25px rgba(255, 0, 100, 0.25);
-      backdrop-filter: blur(8px);
-      animation: pulse 5s ease-in-out infinite;
-    }
+.age-box {
+  position: absolute;
+  top:50%; left:50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  background: rgba(20,0,40,0.85);
+  border-radius: 40px;
+  padding: 2rem;
+  max-width: 360px;
+  width: 80%;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 0 50px #ff00ffaa, inset 0 0 25px #ff33cc55;
+  backdrop-filter: blur(14px);
+  animation: floaty 5s ease-in-out infinite;
+}
 
-    .age-box h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #ffbfd1;
-    }
+.age-box h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ff00ff;
+  text-shadow: 0 0 8px #ff66ff, 0 0 16px #ff00ff;
+  animation: glitch 1.5s infinite, neonGlow 2s ease-in-out infinite alternate;
+}
 
-    .age-box p {
-      font-size: 1rem;
-      margin-bottom: 2rem;
-      color: #ffe3ec;
-    }
+.age-box p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #ffccff;
+  text-shadow: 0 0 6px #ff99ff;
+}
 
-    .btn-yes {
-      position: relative;
-      display: inline-block;
-      background: linear-gradient(270deg, #ff0066, #ffcc00, #33ff77, #0099ff, #ff00ff);
-      background-size: 1000% 1000%;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.1rem;
-      padding: 0.9rem 1.4rem;
-      border-radius: 50px;
-      text-transform: uppercase;
-      text-align: center;
-      text-decoration: none;
-      box-shadow: 0 0 25px rgba(255, 0, 150, 0.7), 0 0 50px rgba(255, 0, 150, 0.4);
-      animation: gradientShift 6s ease infinite, pulseGlow 2.5s ease-in-out infinite;
-      transition: transform 0.2s ease;
-    }
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
-    .btn-yes:hover {
-      animation: gradientShift 6s ease infinite, pulseGlow 2.5s ease-in-out infinite, vibrate 0.25s linear infinite;
-      transform: scale(1.08);
-      box-shadow: 0 0 35px rgba(255, 255, 255, 0.9), 0 0 70px rgba(255, 0, 200, 0.8);
-    }
+.btn {
+  flex: 1 1 45%;
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
 
-    @keyframes pulse {
-      0% { transform: translate(-50%, -50%) scale(1); }
-      50% { transform: translate(-50%, -50%) scale(1.02); }
-      100% { transform: translate(-50%, -50%) scale(1); }
-    }
+.btn-yes {
+  background: linear-gradient(45deg, #ff00ff, #ff66ff, #ff00cc);
+  color: #fff;
+  box-shadow: 0 0 20px #ff00ffaa, 0 0 40px #ff33cc55 inset;
+  animation: pulse-button 1.8s infinite alternate;
+}
 
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+.btn-no {
+  background: #111;
+  color: #bbb;
+  border: 2px solid #444;
+  box-shadow: 0 0 8px #000;
+  animation: pulse-button 3s infinite alternate;
+}
 
-    @keyframes pulseGlow {
-      0% { box-shadow: 0 0 20px rgba(255, 0, 150, 0.6), 0 0 40px rgba(255, 0, 150, 0.3); }
-      50% { box-shadow: 0 0 35px rgba(255, 255, 255, 0.9), 0 0 80px rgba(255, 0, 200, 0.6); }
-      100% { box-shadow: 0 0 20px rgba(255, 0, 150, 0.6), 0 0 40px rgba(255, 0, 150, 0.3); }
-    }
+.btn-yes::after, .btn-no::after {
+  content: '';
+  position: absolute;
+  top:0; left:0; width:100%; height:100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+  transform: translateX(-100%);
+  pointer-events: none;
+  transition: all 0.5s;
+}
 
-    @keyframes vibrate {
-      0% { transform: translate(0, 0) scale(1.08); }
-      20% { transform: translate(-2px, 1px) scale(1.08); }
-      40% { transform: translate(2px, -1px) scale(1.08); }
-      60% { transform: translate(-1px, 2px) scale(1.08); }
-      80% { transform: translate(1px, -2px) scale(1.08); }
-      100% { transform: translate(0, 0) scale(1.08); }
-    }
-  </style>
+.btn-yes:hover::after, .btn-no:hover::after {
+  transform: translateX(100%);
+}
+
+.btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 30px #ff66ff, 0 0 60px #ff33cc inset;
+}
+
+@keyframes floaty {
+  0%,100% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -52%) scale(1.03); }
+}
+
+@keyframes pulse-button {
+  0% { box-shadow: 0 0 12px #ff00ffaa; }
+  50% { box-shadow: 0 0 28px #ff33ccff; }
+  100% { box-shadow: 0 0 12px #ff00ffaa; }
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 0 #ff33cc, -2px 0 #ff66ff; }
+  20% { text-shadow: -2px 2px #ff00ff, 2px -2px #ff99ff; }
+  40% { text-shadow: 2px -2px #ff33ff, -2px 2px #ff00cc; }
+  60% { text-shadow: -2px 0 #ff66ff, 2px 0 #ff00ff; }
+  80% { text-shadow: 2px 2px #ff00ff, -2px -2px #ff33cc; }
+  100% { text-shadow: 2px 0 #ff33cc, -2px 0 #ff66ff; }
+}
+
+@keyframes neonGlow {
+  0% { text-shadow: 0 0 8px #ff00ff, 0 0 16px #ff66ff; }
+  50% { text-shadow: 0 0 20px #ff33ff, 0 0 35px #ff00cc; }
+  100% { text-shadow: 0 0 8px #ff00ff, 0 0 16px #ff66ff; }
+}
+
+@media (max-width: 420px) {
+  .buttons { flex-direction: column; }
+  .btn { flex: 1 1 100%; }
+}
+</style>
 </head>
 <body>
-  <video class="bg-video" autoplay muted loop playsinline>
-    <source src="assets/bg2.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
 
-  <div class="overlay"></div>
+<video class="bg-video" autoplay muted loop playsinline>
+  <source src="assets/bg2.mp4" type="video/mp4">
+</video>
 
-  <div class="age-box" id="ageBox">
-    <h1>Feeling Lucky Tonight?</h1>
-    <p>Step inside for nonstop thrills, rewards, and the chance to hit it big.  
-       Your adventure starts now!</p>
-    <a class="btn-yes" href="javascript:void(0)" onclick="
-      (function() {
-        try {
-          const url = window.location.href;
-          const arefIndex = url.lastIndexOf('aref=');
-          if (arefIndex !== -1) {
-            const target = decodeURIComponent(url.substring(arefIndex + 5));
-            window.open(target, '_self');
-          } else {
-            window.location.href = 'https://jndbdj.briiliantsdate.net/?utm_source=da57dc555e50572d&ban=push&j5=1&j6=1&s1=233166&s2=2115496&click_id=<tid>';
-          }
-        } catch(e) {
-          window.location.href = 'https://jndbdj.briiliantsdate.net/?utm_source=da57dc555e50572d&ban=push&j5=1&j6=1&s1=233166&s2=2115496&click_id=<tid>';
-        }
-      })();
-    ">🔥 Enter Now & Play 🔥</a>
+<div class="overlay"></div>
+
+<div class="age-box">
+  <h1>⚡ ENTER THE NEON REALM ⚡</h1>
+  <p>Only the brave 18+ may witness the hidden wonders inside. Are you ready to step beyond?</p>
+  <div class="buttons">
+    <a class="btn btn-no" href="javascript:void(0)" onclick="denyAccess()">No, I'm not ready</a>
+    <a class="btn btn-yes" href="javascript:void(0)" onclick="grantAccess()">Yes, take me in</a>
   </div>
+</div>
+
+<script>
+function denyAccess() {
+  alert("You must be 18+ to enter.");
+  window.location.href = "https://google.com";
+}
+
+function grantAccess() {
+  const url = window.location.href;
+  const arefIndex = url.lastIndexOf('aref=');
+  if (arefIndex !== -1) {
+    const target = decodeURIComponent(url.substring(arefIndex + 5));
+    window.location.href = target;
+  } else {
+    window.location.href = 'https://jndbdj.briiliantsdate.net/?utm_source=da57dc555e50572d';
+  }
+}
+</script>
+
 </body>
 </html>
