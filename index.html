@@ -1,86 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>iPhone 17 Pro Giveaway</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>iPhone 17 Ultimate Giveaway</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Black:wght@900&display=swap');
+  *,*::before,*::after{box-sizing:border-box;}
+  html, body{margin:0;padding:0;height:100%;width:100%;overflow-x:hidden;font-family:'Roboto Black', sans-serif;background:#0f0f1f;color:#fff;}
+  body{display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .container{max-width:1200px;width:90%;text-align:center;position:relative;z-index:2;}
+  h1{font-size:clamp(32px,6vw,56px);margin-bottom:20px;background:linear-gradient(90deg,#ff0080,#ffdd00,#00ffdd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:textGlow 2s ease-in-out infinite alternate;}
+  @keyframes textGlow{0%{text-shadow:0 0 10px #fff;}100%{text-shadow:0 0 30px #ff0,0 0 60px #f0f,0 0 90px #0ff;}}
+  p{font-size:clamp(16px,2vw,24px);margin-bottom:40px;color:rgba(255,255,255,0.85)}
+  .btn{background:linear-gradient(90deg,#ff00ff,#00ffff,#ffdd00);color:#111;border:none;padding:16px 40px;border-radius:30px;font-size:clamp(18px,2.5vw,28px);font-weight:900;cursor:pointer;transition:0.3s;box-shadow:0 12px 30px rgba(0,0,0,0.5);text-transform:uppercase;}
+  .btn:hover{transform:scale(1.2);box-shadow:0 16px 40px rgba(0,0,0,0.7);}
+  .mockphone{margin:40px auto;width:clamp(200px,25vw,320px);height:auto;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;}
+  .mockphone img{width:100%;border-radius:20px;}
+  canvas.fireworks{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;}
+</style>
 </head>
-<body class="bg-gradient-to-b from-gray-50 to-white font-sans">
-
-  <!-- Main Container -->
-  <div class="min-h-screen flex flex-col lg:flex-row items-center justify-center px-6 py-12 gap-12">
-
-    <!-- Left Section: Text + Form -->
-    <section class="max-w-lg w-full">
-      <h1 class="text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-pink-500">
-        Win the iPhone 17 Pro!
-      </h1>
-      <p class="mt-4 text-gray-700 text-lg">
-        One lucky winner. No catch. Fill the form below and enter now. Winner announced live on <strong>Nov 15, 2025</strong>.
-      </p>
-
-      <form id="giveawayForm" class="mt-6 bg-white p-6 rounded-xl shadow-lg space-y-4">
-        <div>
-          <label class="block text-sm font-medium">Full Name</label>
-          <input type="text" id="name" placeholder="Your name" class="mt-1 w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-300">
-        </div>
-        <div>
-          <label class="block text-sm font-medium">Email</label>
-          <input type="email" id="email" placeholder="you@example.com" class="mt-1 w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-300">
-        </div>
-        <div>
-          <label class="block text-sm font-medium">Country</label>
-          <input type="text" id="country" placeholder="e.g. USA" class="mt-1 w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-300">
-        </div>
-        <div class="text-red-600 text-sm" id="error"></div>
-        <button type="submit" class="w-full bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-4 py-2 rounded-lg font-semibold hover:opacity-95 transition">
-          Enter to Win
-        </button>
-      </form>
-
-      <div id="successMessage" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-lg font-medium">
-        🎉 Thanks! You're entered to win the iPhone 17 Pro.
-      </div>
-    </section>
-
-    <!-- Right Section: iPhone Image -->
-    <aside class="w-full max-w-sm">
-      <div class="relative bg-gray-100 rounded-3xl p-6 shadow-2xl">
-        <img src="images/iphone17pro.png" alt="iPhone 17 Pro" class="rounded-xl shadow-lg">
-      </div>
-    </aside>
-
+<body>
+<canvas class="fireworks"></canvas>
+<div class="container">
+  <div class="mockphone">
+    <img src="https://raw.githubusercontent.com/raja-ramesh/iphone17/main/iphone17.png" alt="iPhone 17">
   </div>
-
-  <script>
-    const form = document.getElementById('giveawayForm');
-    const success = document.getElementById('successMessage');
-    const error = document.getElementById('error');
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      error.textContent = '';
-
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const country = document.getElementById('country').value.trim();
-
-      if(!name || !email || !country) {
-        error.textContent = 'Please fill all fields.';
-        return;
-      }
-
-      const emailRegex = /\S+@\S+\.\S+/;
-      if(!emailRegex.test(email)) {
-        error.textContent = 'Please enter a valid email.';
-        return;
-      }
-
-      form.classList.add('hidden');
-      success.classList.remove('hidden');
-    });
-  </script>
-
+  <h1>🚀 Win Your iPhone 17 NOW! 🚀</h1>
+  <p>Time is running out! Enter the most exciting giveaway of the year. One lucky winner will be chosen instantly.</p>
+  <button class="btn">Grab It Before It's Gone!</button>
+</div>
+<script>
+const canvas = document.querySelector('.fireworks');
+const ctx = canvas.getContext('2d');
+function resizeCanvas(){canvas.width = window.innerWidth;canvas.height = window.innerHeight;}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+let particles=[];
+function Particle(x,y,color){this.x=x;this.y=y;this.vx=(Math.random()-0.5)*8;this.vy=(Math.random()-1.5)*8;this.alpha=1;this.color=color;}
+Particle.prototype.update=function(){this.x+=this.vx;this.y+=this.vy;this.alpha-=0.02;}
+Particle.prototype.draw=function(){ctx.fillStyle=`rgba(${this.color},${this.alpha})`;ctx.beginPath();ctx.arc(this.x,this.y,5,0,Math.PI*2);ctx.fill();}
+function animate(){ctx.fillStyle='rgba(15,15,31,0.2)';ctx.fillRect(0,0,canvas.width,canvas.height);if(Math.random()<0.07){const x=Math.random()*canvas.width;const y=Math.random()*canvas.height/2;const color=`${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)}`;for(let i=0;i<40;i++)particles.push(new Particle(x,y,color));}for(let i=particles.length-1;i>=0;i--){let p=particles[i];p.update();p.draw();if(p.alpha<=0)particles.splice(i,1);}requestAnimationFrame(animate);}
+animate();
+</script>
 </body>
 </html>
