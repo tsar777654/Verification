@@ -1,11 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>iPhone 17 Pro Giveaway</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div id="root"></div>
+<body class="bg-gradient-to-b from-gray-50 to-white font-sans">
+
+  <!-- Main Container -->
+  <div class="min-h-screen flex flex-col lg:flex-row items-center justify-center px-6 py-12 gap-12">
+
+    <!-- Left Section: Text + Form -->
+    <section class="max-w-lg w-full">
+      <h1 class="text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-pink-500">
+        Win the iPhone 17 Pro!
+      </h1>
+      <p class="mt-4 text-gray-700 text-lg">
+        One lucky winner. No catch. Fill the form below and enter now. Winner announced live on <strong>Nov 15, 2025</strong>.
+      </p>
+
+      <form id="giveawayForm" class="mt-6 bg-white p-6 rounded-xl shadow-lg space-y-4">
+        <div>
+          <label class="block text-sm font-medium">Full Name</label>
+          <input type="text" id="name" placeholder="Your name" class="mt-1 w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Email</label>
+          <input type="email" id="email" placeholder="you@example.com" class="mt-1 w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+        </div>
+        <div>
+          <label class="block text-sm font-medium">Country</label>
+          <input type="text" id="country" placeholder="e.g. USA" class="mt-1 w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+        </div>
+        <div class="text-red-600 text-sm" id="error"></div>
+        <button type="submit" class="w-full bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-4 py-2 rounded-lg font-semibold hover:opacity-95 transition">
+          Enter to Win
+        </button>
+      </form>
+
+      <div id="successMessage" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-lg font-medium">
+        🎉 Thanks! You're entered to win the iPhone 17 Pro.
+      </div>
+    </section>
+
+    <!-- Right Section: iPhone Image -->
+    <aside class="w-full max-w-sm">
+      <div class="relative bg-gray-100 rounded-3xl p-6 shadow-2xl">
+        <img src="images/iphone17pro.png" alt="iPhone 17 Pro" class="rounded-xl shadow-lg">
+      </div>
+    </aside>
+
+  </div>
+
+  <script>
+    const form = document.getElementById('giveawayForm');
+    const success = document.getElementById('successMessage');
+    const error = document.getElementById('error');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      error.textContent = '';
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const country = document.getElementById('country').value.trim();
+
+      if(!name || !email || !country) {
+        error.textContent = 'Please fill all fields.';
+        return;
+      }
+
+      const emailRegex = /\S+@\S+\.\S+/;
+      if(!emailRegex.test(email)) {
+        error.textContent = 'Please enter a valid email.';
+        return;
+      }
+
+      form.classList.add('hidden');
+      success.classList.remove('hidden');
+    });
+  </script>
+
 </body>
 </html>
