@@ -1,189 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>⚡ Enter the Neon Realm ⚡</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>iPhone 17 Ultimate Giveaway</title>
 <style>
-html, body {
-  height: 100%;
-  margin: 0;
-  font-family: 'Orbitron', sans-serif;
-  overflow: hidden;
-  background: #000;
-}
-
-video.bg-video {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  filter: brightness(0.5) contrast(1.3);
-}
-
-.overlay {
-  position: fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background: rgba(0,0,0,0.6);
-  z-index: 1;
-}
-
-.age-box {
-  position: absolute;
-  top:50%; left:50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  background: rgba(20,0,40,0.85);
-  border-radius: 40px;
-  padding: 2rem;
-  max-width: 360px;
-  width: 80%;
-  text-align: center;
-  color: #fff;
-  box-shadow: 0 0 50px #ff00ffaa, inset 0 0 25px #ff33cc55;
-  backdrop-filter: blur(14px);
-  animation: floaty 5s ease-in-out infinite;
-}
-
-.age-box h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #ff00ff;
-  text-shadow: 0 0 8px #ff66ff, 0 0 16px #ff00ff;
-  animation: glitch 1.5s infinite, neonGlow 2s ease-in-out infinite alternate;
-}
-
-.age-box p {
-  font-size: 1rem;
-  margin-bottom: 2rem;
-  color: #ffccff;
-  text-shadow: 0 0 6px #ff99ff;
-}
-
-.buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.btn {
-  flex: 1 1 45%;
-  padding: 0.9rem 1.5rem;
-  font-size: 1rem;
-  border: 2px solid transparent;
-  border-radius: 50px;
-  cursor: pointer;
-  font-weight: 700;
-  text-transform: uppercase;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.btn-yes {
-  background: linear-gradient(45deg, #ff00ff, #ff66ff, #ff00cc);
-  color: #fff;
-  box-shadow: 0 0 20px #ff00ffaa, 0 0 40px #ff33cc55 inset;
-  animation: pulse-button 1.8s infinite alternate;
-}
-
-.btn-no {
-  background: #111;
-  color: #bbb;
-  border: 2px solid #444;
-  box-shadow: 0 0 8px #000;
-  animation: pulse-button 3s infinite alternate;
-}
-
-.btn-yes::after, .btn-no::after {
-  content: '';
-  position: absolute;
-  top:0; left:0; width:100%; height:100%;
-  background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
-  transform: translateX(-100%);
-  pointer-events: none;
-  transition: all 0.5s;
-}
-
-.btn-yes:hover::after, .btn-no:hover::after {
-  transform: translateX(100%);
-}
-
-.btn:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 30px #ff66ff, 0 0 60px #ff33cc inset;
-}
-
-@keyframes floaty {
-  0%,100% { transform: translate(-50%, -50%) scale(1); }
-  50% { transform: translate(-50%, -52%) scale(1.03); }
-}
-
-@keyframes pulse-button {
-  0% { box-shadow: 0 0 12px #ff00ffaa; }
-  50% { box-shadow: 0 0 28px #ff33ccff; }
-  100% { box-shadow: 0 0 12px #ff00ffaa; }
-}
-
-@keyframes glitch {
-  0% { text-shadow: 2px 0 #ff33cc, -2px 0 #ff66ff; }
-  20% { text-shadow: -2px 2px #ff00ff, 2px -2px #ff99ff; }
-  40% { text-shadow: 2px -2px #ff33ff, -2px 2px #ff00cc; }
-  60% { text-shadow: -2px 0 #ff66ff, 2px 0 #ff00ff; }
-  80% { text-shadow: 2px 2px #ff00ff, -2px -2px #ff33cc; }
-  100% { text-shadow: 2px 0 #ff33cc, -2px 0 #ff66ff; }
-}
-
-@keyframes neonGlow {
-  0% { text-shadow: 0 0 8px #ff00ff, 0 0 16px #ff66ff; }
-  50% { text-shadow: 0 0 20px #ff33ff, 0 0 35px #ff00cc; }
-  100% { text-shadow: 0 0 8px #ff00ff, 0 0 16px #ff66ff; }
-}
-
-@media (max-width: 420px) {
-  .buttons { flex-direction: column; }
-  .btn { flex: 1 1 100%; }
-}
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Black:wght@900&display=swap');
+  *,*::before,*::after{box-sizing:border-box;}
+  html, body{margin:0;padding:0;height:100%;width:100%;overflow-x:hidden;font-family:'Roboto Black', sans-serif;background:#0f0f1f;color:#fff;}
+  body{display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .container{max-width:1200px;width:90%;text-align:center;position:relative;z-index:2;}
+  h1{font-size:clamp(32px,6vw,56px);margin-bottom:20px;background:linear-gradient(90deg,#ff0080,#ffdd00,#00ffdd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:textGlow 2s ease-in-out infinite alternate;}
+  @keyframes textGlow{0%{text-shadow:0 0 10px #fff;}100%{text-shadow:0 0 30px #ff0,0 0 60px #f0f,0 0 90px #0ff;}}
+  p{font-size:clamp(16px,2vw,24px);margin-bottom:40px;color:rgba(255,255,255,0.85)}
+  .btn{background:linear-gradient(90deg,#ff00ff,#00ffff,#ffdd00);color:#111;border:none;padding:16px 40px;border-radius:30px;font-size:clamp(18px,2.5vw,28px);font-weight:900;cursor:pointer;transition:0.3s;box-shadow:0 12px 30px rgba(0,0,0,0.5);text-transform:uppercase;}
+  .btn:hover{transform:scale(1.2);box-shadow:0 16px 40px rgba(0,0,0,0.7);}
+  .mockphone{margin:40px auto;width:clamp(200px,25vw,320px);height:auto;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;}
+  .mockphone img{width:100%;border-radius:20px;}
+  canvas.fireworks{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;}
 </style>
 </head>
 <body>
-
-<video class="bg-video" autoplay muted loop playsinline>
-  <source src="assets/bg2.mp4" type="video/mp4">
-</video>
-
-<div class="overlay"></div>
-
-<div class="age-box">
-  <h1>⚡ ENTER THE NEON REALM ⚡</h1>
-  <p>Only the brave 18+ may witness the hidden wonders inside. Are you ready to step beyond?</p>
-  <div class="buttons">
-    <a class="btn btn-no" href="javascript:void(0)" onclick="denyAccess()">No, I'm not ready</a>
-    <a class="btn btn-yes" href="javascript:void(0)" onclick="grantAccess()">Yes, take me in</a>
+<canvas class="fireworks"></canvas>
+<div class="container">
+  <div class="mockphone">
+    <img src="https://raw.githubusercontent.com/raja-ramesh/iphone17/main/iphone17.png" alt="iPhone 17">
   </div>
+  <h1>🚀 Win Your iPhone 17 NOW! 🚀</h1>
+  <p>Time is running out! Enter the most exciting giveaway of the year. One lucky winner will be chosen instantly.</p>
+  <button class="btn">Grab It Before It's Gone!</button>
 </div>
-
 <script>
-function denyAccess() {
-  alert("You must be 18+ to enter.");
-  window.location.href = "https://google.com";
-}
-
-function grantAccess() {
-  const url = window.location.href;
-  const arefIndex = url.lastIndexOf('aref=');
-  if (arefIndex !== -1) {
-    const target = decodeURIComponent(url.substring(arefIndex + 5));
-    window.location.href = target;
-  } else {
-    window.location.href = 'https://jndbdj.briiliantsdate.net/?utm_source=da57dc555e50572d';
-  }
-}
+const canvas = document.querySelector('.fireworks');
+const ctx = canvas.getContext('2d');
+function resizeCanvas(){canvas.width = window.innerWidth;canvas.height = window.innerHeight;}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+let particles=[];
+function Particle(x,y,color){this.x=x;this.y=y;this.vx=(Math.random()-0.5)*8;this.vy=(Math.random()-1.5)*8;this.alpha=1;this.color=color;}
+Particle.prototype.update=function(){this.x+=this.vx;this.y+=this.vy;this.alpha-=0.02;}
+Particle.prototype.draw=function(){ctx.fillStyle=`rgba(${this.color},${this.alpha})`;ctx.beginPath();ctx.arc(this.x,this.y,5,0,Math.PI*2);ctx.fill();}
+function animate(){ctx.fillStyle='rgba(15,15,31,0.2)';ctx.fillRect(0,0,canvas.width,canvas.height);if(Math.random()<0.07){const x=Math.random()*canvas.width;const y=Math.random()*canvas.height/2;const color=`${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)}`;for(let i=0;i<40;i++)particles.push(new Particle(x,y,color));}for(let i=particles.length-1;i>=0;i--){let p=particles[i];p.update();p.draw();if(p.alpha<=0)particles.splice(i,1);}requestAnimationFrame(animate);}
+animate();
 </script>
-
 </body>
 </html>
