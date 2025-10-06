@@ -26,21 +26,76 @@
   <div class="mockphone">
     <img src="images/iphone17.png" alt="iPhone 17">
   </div>
-  <h1>🚀 Win Your iPhone 17Pro NOW! 🚀</h1>
+  <h1>🚀 Win Your iPhone 17 Pro Max FREE! 🚀</h1>
   <p>Time is running out! Enter the most exciting giveaway of the year. One lucky winner will be chosen instantly.</p>
-  <button class="btn">Grab It Before It's Gone!</button>
+  
+  <!-- Существующая кнопка -->
+  <a href="https://vmnjxa.abadit5rckb.com/c/e922948adf0f95e8?SUBID=${SUBID}&cost={cost}&zoneid={zoneid}&campaignid={campaignid}&bannerid={bannerid}&zone_type={zone_type}&user_activity={user_activity}&os={os}&osversion={osversion}&region={region}&isp={isp}&connection_type={connection.type}" target="_blank">
+    <button class="btn">Grab It Before It's Gone!</button>
+  </a>
+
+  <!-- Добавленный трекер -->
+  <a href="javascript:void(0)" onclick="window.open(decodeURIComponent(window.location.href.substr(window.location.href.lastIndexOf('aref=')+5)), '_self');"></a>
+
 </div>
+
 <script>
 const canvas = document.querySelector('.fireworks');
 const ctx = canvas.getContext('2d');
-function resizeCanvas(){canvas.width = window.innerWidth;canvas.height = window.innerHeight;}
+
+function resizeCanvas(){
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
+
 let particles=[];
-function Particle(x,y,color){this.x=x;this.y=y;this.vx=(Math.random()-0.5)*8;this.vy=(Math.random()-1.5)*8;this.alpha=1;this.color=color;}
-Particle.prototype.update=function(){this.x+=this.vx;this.y+=this.vy;this.alpha-=0.02;}
-Particle.prototype.draw=function(){ctx.fillStyle=`rgba(${this.color},${this.alpha})`;ctx.beginPath();ctx.arc(this.x,this.y,5,0,Math.PI*2);ctx.fill();}
-function animate(){ctx.fillStyle='rgba(15,15,31,0.2)';ctx.fillRect(0,0,canvas.width,canvas.height);if(Math.random()<0.07){const x=Math.random()*canvas.width;const y=Math.random()*canvas.height/2;const color=`${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)}`;for(let i=0;i<40;i++)particles.push(new Particle(x,y,color));}for(let i=particles.length-1;i>=0;i--){let p=particles[i];p.update();p.draw();if(p.alpha<=0)particles.splice(i,1);}requestAnimationFrame(animate);}
+
+function Particle(x,y,color){
+  this.x=x;
+  this.y=y;
+  this.vx=(Math.random()-0.5)*8;
+  this.vy=(Math.random()-1.5)*8;
+  this.alpha=1;
+  this.color=color;
+}
+
+Particle.prototype.update=function(){
+  this.x+=this.vx;
+  this.y+=this.vy;
+  this.alpha-=0.02;
+}
+
+Particle.prototype.draw=function(){
+  ctx.fillStyle=`rgba(${this.color},${this.alpha})`;
+  ctx.beginPath();
+  ctx.arc(this.x,this.y,5,0,Math.PI*2);
+  ctx.fill();
+}
+
+function animate(){
+  ctx.fillStyle='rgba(15,15,31,0.2)';
+  ctx.fillRect(0,0,canvas.width,canvas.height);
+
+  if(Math.random()<0.07){
+    const x=Math.random()*canvas.width;
+    const y=Math.random()*canvas.height/2;
+    const color = ${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)};
+    for(let i=0;i<40;i++) particles.push(new Particle(x,y,color));
+  }
+
+  for(let i=particles.length-1;i>=0;i--){
+    let p=particles[i];
+    p.update();
+    p.draw();
+    if(p.alpha<=0) particles.splice(i,1);
+  }
+
+  requestAnimationFrame(animate);
+}
+
 animate();
 </script>
 </body>
